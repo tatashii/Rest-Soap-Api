@@ -1,4 +1,4 @@
-package com.api.rest.entitiy;
+package org.api.rest.entity;
 
 import lombok.Getter;
 import lombok.Setter;

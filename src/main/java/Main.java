@@ -1,4 +1,5 @@
-import com.api.rest.entitiy.*;
+import org.api.rest.entity.*;
+import org.api.rest.entityManager.EntityManagerFactorySingleton;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -9,8 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("rest");
-
+        EntityManagerFactory entityManagerFactory = EntityManagerFactorySingleton.getEntityManagerFactory();
         EntityManager em = entityManagerFactory.createEntityManager();
 
         try {
