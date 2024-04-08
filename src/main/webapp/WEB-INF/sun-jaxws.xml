@@ -1,0 +1,17 @@
+<endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
+    <endpoint
+            name="CalculatorWebService"
+            implementation="org.api.soap.soapApiServices.services.CalculatorWebServiceImpl"
+            url-pattern="/soap/calculator">
+
+    </endpoint>
+
+    <endpoint
+            name="CalculatorWebService"
+            implementation="org.api.soap.soapApiServices.EmployeeSoapAPI"
+            url-pattern="/soap/employee">
+
+    </endpoint>
+
+
+</endpoints>
