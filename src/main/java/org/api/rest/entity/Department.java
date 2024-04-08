@@ -2,6 +2,7 @@ package org.api.rest.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.LinkedHashSet;
@@ -9,6 +10,7 @@ import java.util.Set;
 
 @Getter
 @Setter
+@ToString
 @Entity
 @Table(name = "department")
 public class Department {

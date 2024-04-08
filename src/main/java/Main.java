@@ -1,4 +1,6 @@
+import org.api.rest.dto.EmployeeDto;
 import org.api.rest.entity.*;
+import org.api.rest.entityManager.Database;
 import org.api.rest.entityManager.EntityManagerFactorySingleton;
 
 import javax.persistence.EntityManager;
@@ -6,14 +8,18 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.Date;
 
+//import static org.api.rest.services.EmployeeServices.getAllEmployees;
+
+
 public class Main {
 
     public static void main(String[] args) {
 
-        EntityManagerFactory entityManagerFactory = EntityManagerFactorySingleton.getEntityManagerFactory();
-        EntityManager em = entityManagerFactory.createEntityManager();
+//        EntityManagerFactory entityManagerFactory = EntityManagerFactorySingleton.getEntityManagerFactory();
+//        EntityManager em = entityManagerFactory.createEntityManager();
 
         try {
+
 
             // Instantiate entities
             Department department = new Department();
@@ -57,23 +63,40 @@ public class Main {
             leave.setEmployee(employee); // Assigning employee to leave
 
             // Persist entities
-            em.getTransaction().begin();
 
-            em.persist(department);
-            em.persist(work);
-            em.persist(employee);
-            em.persist(address);
-            em.persist(leave);
+            //em.getTransaction().begin();
 
-            em.getTransaction().commit();
+            Database.doInTransaction(em->{
+                em.persist(department);
+                em.persist(work);
+                em.persist(employee);
+                em.persist(address);
+                em.persist(leave);
+                return "";
+            });
+
+            //em.getTransaction().commit();
             System.out.println("Entities persisted successfully.");
+
+            //-----------------------------------------------------------------------------
+//            System.out.println("Hello Hajar ......");
+//            for (EmployeeDto emp : getAllEmployees()){ // getAllEmployees ---> change it to be static
+//                System.out.println("employee = "+emp);
+//            }
+            //-----------------------------------------------------------------------------
+
+
         } catch (Exception e) {
 
-            em.getTransaction().rollback();
+//            em.getTransaction().rollback();
+            Database.doInTransactionWithoutResult(entityManager -> {
+                entityManager.getTransaction().rollback();
+            });
             e.printStackTrace();
         } finally {
-            em.close();
-            entityManagerFactory.close();
+//            em.close();
+//            entityManagerFactory.close();
+            Database.close();
         }
     }
 }
