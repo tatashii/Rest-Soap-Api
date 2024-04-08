@@ -1,0 +1,84 @@
+CREATE SCHEMA IF NOT EXISTS rest;
+
+drop schema rest;
+
+CREATE TABLE Department (
+    Id INT PRIMARY KEY,
+    Name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE Work (
+    Id INT PRIMARY KEY,
+    Name VARCHAR(255) NOT NULL,
+    Description VARCHAR(255),
+    StartTime TIMESTAMP,
+    DeadLine TIMESTAMP,
+    Status VARCHAR(50),
+    Type VARCHAR(50)
+) ENGINE=InnoDB;
+
+CREATE TABLE Employee (
+    Id INT PRIMARY KEY,
+    Name VARCHAR(255) NOT NULL,
+    UserName VARCHAR(100) NOT NULL,
+    Password VARCHAR(100) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
+    Role VARCHAR(100),
+    Gender VARCHAR(10),
+    Salary DECIMAL(10,2),
+    DOB DATE,
+    Joining DATE,
+    DepartmentId INT,
+    FOREIGN KEY (DepartmentId) REFERENCES Department(Id)
+) ENGINE=InnoDB;
+
+CREATE TABLE Address (
+    Id INT PRIMARY KEY,
+    HouseNo VARCHAR(50),
+    Street VARCHAR(255) NOT NULL,
+    City VARCHAR(100),
+    Pincode VARCHAR(20),
+    State VARCHAR(100),
+    EmployeeId INT,
+    FOREIGN KEY (EmployeeId) REFERENCES Employee(Id)
+) ENGINE=InnoDB;
+
+CREATE TABLE Leavee (
+    Id INT PRIMARY KEY,
+    Reason VARCHAR(255) NOT NULL,
+    Status VARCHAR(50) NOT NULL,
+    LeaveStartDate TIMESTAMP NOT NULL,
+    LeaveEndDate TIMESTAMP NOT NULL,
+    EmployeeId INT,
+    FOREIGN KEY (EmployeeId) REFERENCES Employee(Id)
+) ENGINE=InnoDB;
+
+//**********************************************************************************************************************
+
+
+INSERT INTO Department (Id, Name)
+VALUES (1, 'Human Resources'),
+       (2, 'Finance'),
+       (3, 'Marketing');
+
+INSERT INTO Work (Id, Name, Description, StartTime, DeadLine, Status, Type)
+VALUES (1, 'Project A', 'Developing new feature', '2024-04-10 09:00:00', '2024-04-30 18:00:00', 'In Progress', 'Development'),
+       (2, 'Project B', 'Testing application', '2024-05-01 09:00:00', '2024-05-15 18:00:00', 'Not Started', 'Testing');
+
+
+INSERT INTO Employee (Id, Name, UserName, Password, Email, Role, Gender, Salary, DOB, Joining, DepartmentId)
+VALUES (1, 'John Doe', 'john.doe', 'password123', 'john.doe@example.com', 'Manager', 'Male', 5000.00, '1990-05-15', '2020-01-01', 1),
+       (2, 'Jane Smith', 'jane.smith', 'pass@123', 'jane.smith@example.com', 'HR Assistant', 'Female', 4000.00, '1995-08-20', '2021-03-15', 1),
+       (3, 'Bob Johnson', 'bob.johnson', 'test123', 'bob.johnson@example.com', 'Developer', 'Male', 6000.00, '1988-10-10', '2019-07-01', 3);
+
+INSERT INTO Address (Id, HouseNo, Street, City, Pincode, State, EmployeeId)
+VALUES (1, '123', 'Main Street', 'New York', '10001', 'NY', 1),
+       (2, '456', 'First Avenue', 'Los Angeles', '90001', 'CA', 2),
+       (3, '789', 'Park Road', 'Chicago', '60601', 'IL', 3);
+
+
+INSERT INTO Leavee (Id, Reason, Status, LeaveStartDate, LeaveEndDate, EmployeeId)
+VALUES (1, 'Vacation', 'Approved', '2024-06-01 00:00:00', '2024-06-10 00:00:00', 1),
+       (2, 'Personal reasons', 'Pending', '2024-05-15 00:00:00', '2024-05-20 00:00:00', 2),
+       (3, 'Sick leave', 'Approved', '2024-04-20 00:00:00', '2024-04-25 00:00:00', 3);
+
