@@ -1,5 +1,5 @@
 
-$${\color{red} Simple HR Management \space \color{yellow}Rest \space and   Soap  \space \color{green}API ✨🚀}$$ 
+$${\color{red} Simple \space HR \space Management \space \color{yellow}Rest \space and \space Soap  \space \color{green}API ✨🚀}$$ 
 
 
 > [!NOTE]
