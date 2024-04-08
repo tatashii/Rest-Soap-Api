@@ -11,7 +11,6 @@ $${ \color{yellow} Simple \space Rest \space and \space Soap  \space \color{gree
 
 
 ***
-***
 
 ## Rest API Documentation
 REST API Project Collection
@@ -25,17 +24,15 @@ http://localhost:9090/RestAPI/webapi/employee
 
 
 ***
-***
 
 # SOAP API Project Collection
 ## Simple SOAP API for HR Managment ☼☺☻♥
-﻿
+
  ### Employee
  
 GET
 http://localhost:9090/RestAPI/soap/employee
 
-***
 ***
 
 
@@ -46,7 +43,6 @@ http://localhost:9090/RestAPI/soap/employee
 
 ![test employee $${\color {yellow }}$$ REST API in postman](https://github.com/tatashii/Rest-Soap-Api/blob/master/src/main/resources/Images-Rest-Results/employee.png)
 
-***
 ***
 ### $${ \color {yellow} test \space employee \space SOAP \space API \space in \space postman}$$ 
 ![test employee $${\color {yellow }}$$ SOAP API in postman](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/432c6558-618a-4c5d-b1e1-be668f4e2fb2)
