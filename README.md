@@ -10,6 +10,21 @@ $${ \color{yellow} Simple \space Rest \space and \space Soap  \space \color{gree
 </div>
 
 
+***
+
+## Rest API Documentation
+REST API Project Collection
+
+### Simple Rest API for HR Managment ☼☺☻♥
+
+#### Employee
+
+GET
+http://localhost:9090/RestAPI/webapi/employee
+
+
+***
+
 
 > [!NOTE]
 > Some App Images
