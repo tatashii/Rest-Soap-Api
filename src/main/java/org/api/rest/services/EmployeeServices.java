@@ -72,9 +72,9 @@ public class EmployeeServices {
             }
 
             // Set Role if provided
-            if (employeeDto.getRoleName() != null) {
+            if (employeeDto.getId() != null) {
                 Role role = Database.doInTransaction(em -> {
-                    return roleDAO.findByName(employeeDto.getRoleName(), em);
+                    return roleDAO.findById(employeeDto.getId(), em);
                 });
                 employee.setRole(role);
             }
@@ -142,9 +142,9 @@ public class EmployeeServices {
         }
 
         // Set Role if provided
-        if (employeeDto.getRoleName() != null) {
+        if (employeeDto.getId() != null) {
             Role role = Database.doInTransaction(em -> {
-                return roleDAO.findByName(employeeDto.getRoleName(), em);
+                return roleDAO.findById(employeeDto.getId(), em);
             });
             employee.setRole(role);
         }
