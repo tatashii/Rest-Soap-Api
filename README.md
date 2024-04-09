@@ -39,7 +39,8 @@ GET
 http://localhost:9090/RestAPI/soap/employee
 
 --- 
-### DELETE WORK
+### $${ \color {yellow} DELETE  \space WORK \space REST \space API \space in \space postman}$$ 
+
 #### before
 ![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/17240a62-30d8-4d96-b6dc-35e779829981)
 
