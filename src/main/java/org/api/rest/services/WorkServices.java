@@ -5,6 +5,7 @@ import org.api.rest.dao.impl.WorkDAO;
 import org.api.rest.dto.AddressDto;
 import org.api.rest.dto.WorkDto;
 import org.api.rest.entity.Address;
+import org.api.rest.entity.Employee;
 import org.api.rest.entity.Work;
 import org.api.rest.entityManager.Database;
 import org.api.rest.mapper.AddressMapper;
@@ -16,11 +17,13 @@ public class WorkServices {
 
     private WorkDAO workDAO;
     private WorkMapper workMapper;
+    private WorkDto workDto;
 
     public WorkServices() {
 
         this.workDAO = new WorkDAO();
         this.workMapper = WorkMapper.INSTANCE;
+        this.workDto = new WorkDto();
 
     }
 
@@ -70,14 +73,11 @@ public class WorkServices {
 
     public boolean deleteWork(int workId) {
         try {
-            Work existingWork = Database.doInTransaction(em -> {
-                return em.find(Work.class, workId);
-            });
-            if (existingWork == null) {
-                throw new IllegalArgumentException("Work with ID " + workId + " not found");
-            }
             Database.doInTransactionWithoutResult(em -> {
-                em.remove(existingWork);
+                Work work = em.find(Work.class, workId); // Fetch the entity within the transactional context
+                if (work != null) {
+                    em.remove(work);
+                }
             });
             return true;
         } catch (Exception e) {

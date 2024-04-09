@@ -5,6 +5,7 @@ import org.api.rest.dto.WorkDto;
 import org.api.rest.entity.Address;
 import org.api.rest.entity.Work;
 import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.mapstruct.factory.Mappers;
@@ -12,6 +13,7 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 import java.util.Set;
 
+@Mapper
 public interface WorkMapper {
 
     WorkMapper INSTANCE = Mappers.getMapper(WorkMapper.class);

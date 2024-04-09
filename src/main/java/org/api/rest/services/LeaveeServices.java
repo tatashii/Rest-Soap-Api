@@ -7,6 +7,7 @@ import org.api.rest.dto.LeaveeDto;
 import org.api.rest.entity.Leavee;
 import org.api.rest.entity.Employee;
 import org.api.rest.entity.Leavee;
+import org.api.rest.entity.Leavee;
 import org.api.rest.entityManager.Database;
 import org.api.rest.mapper.LeaveeMapper;
 import org.api.rest.mapper.LeaveeMapper;
@@ -98,20 +99,12 @@ public class LeaveeServices {
     // Delete an existing leavee
     public boolean deleteLeavee(int leaveeId) {
         try {
-            Leavee leaveeToDelete = Database.doInTransaction(em -> {
-                return leaveeDAO.findById(leaveeId, em);
-            });
-
-            // Check if the leavee exists
-            if (leaveeToDelete == null) {
-                throw new IllegalArgumentException("Leavee with ID " + leaveeId + " not found");
-            }
-
-            // Delete the leavee
             Database.doInTransactionWithoutResult(em -> {
-                leaveeDAO.delete(leaveeToDelete, em);
+                Leavee work = em.find(Leavee.class, leaveeId); // Fetch the entity within the transactional context
+                if (work != null) {
+                    em.remove(work);
+                }
             });
-
             return true;
         } catch (Exception e) {
             e.printStackTrace();

@@ -53,12 +53,12 @@ public class WorkRestAPI {
     @Path("/{id}")
     public Response deleteWork(@PathParam("id") int workId) {
         boolean success = workServices.deleteWork(workId);
-        if (success) {
+//        if (success) {
             return Response.ok().build();
-        } else {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity("Failed to delete work")
-                    .build();
-        }
+//        } else {
+//            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+//                    .entity("Failed to delete work")
+//                    .build();
+//        }
     }
 }

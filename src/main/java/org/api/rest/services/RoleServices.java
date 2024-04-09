@@ -3,6 +3,7 @@ package org.api.rest.services;
 import org.api.rest.dao.impl.RoleDAO;
 import org.api.rest.dto.RoleDto;
 import org.api.rest.entity.Role;
+import org.api.rest.entity.Role;
 import org.api.rest.entityManager.Database;
 import org.api.rest.mapper.RoleMapper;
 import org.api.rest.mapper.RoleMapper;
@@ -79,20 +80,12 @@ public class RoleServices {
     // Delete an existing role
     public boolean deleteRole(int roleId) {
         try {
-            Role roleToDelete = Database.doInTransaction(em -> {
-                return roleDAO.findById(roleId, em);
-            });
-
-            // Check if the role exists
-            if (roleToDelete == null) {
-                throw new IllegalArgumentException("Role with ID " + roleId + " not found");
-            }
-
-            // Delete the role
             Database.doInTransactionWithoutResult(em -> {
-                roleDAO.delete(roleToDelete, em);
+                Role work = em.find(Role.class, roleId); // Fetch the entity within the transactional context
+                if (work != null) {
+                    em.remove(work);
+                }
             });
-
             return true;
         } catch (Exception e) {
             e.printStackTrace();

@@ -5,6 +5,7 @@ import org.api.rest.dao.impl.EmployeeDAO;
 import org.api.rest.dto.AddressDto;
 import org.api.rest.entity.Address;
 import org.api.rest.entity.Employee;
+import org.api.rest.entity.Address;
 import org.api.rest.entityManager.Database;
 import org.api.rest.mapper.AddressMapper;
 import org.api.rest.mapper.AddressMapper;
@@ -97,20 +98,12 @@ public class AddressServices {
     // Delete an existing address
     public boolean deleteAddress(int addressId) {
         try {
-            Address addressToDelete = Database.doInTransaction(em -> {
-                return addressDAO.findById(addressId, em);
-            });
-
-            // Check if the address exists
-            if (addressToDelete == null) {
-                throw new IllegalArgumentException("Address with ID " + addressId + " not found");
-            }
-
-            // Delete the address
             Database.doInTransactionWithoutResult(em -> {
-                addressDAO.delete(addressToDelete, em);
+                Address work = em.find(Address.class, addressId); // Fetch the entity within the transactional context
+                if (work != null) {
+                    em.remove(work);
+                }
             });
-
             return true;
         } catch (Exception e) {
             e.printStackTrace();

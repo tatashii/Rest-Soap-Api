@@ -5,6 +5,7 @@ import org.api.rest.dto.RoleDto;
 import org.api.rest.entity.Address;
 import org.api.rest.entity.Role;
 import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.mapstruct.factory.Mappers;
@@ -12,6 +13,7 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 import java.util.Set;
 
+@Mapper
 public interface RoleMapper {
     RoleMapper INSTANCE = Mappers.getMapper(RoleMapper.class);
     Role toEntity(RoleDto roleDto);//Role role  RoleDto roleDto
