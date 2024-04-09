@@ -39,8 +39,9 @@ GET
 http://localhost:9090/RestAPI/soap/employee
 
 --- 
-### DELETE WORK
-#### before
+### $${ \color {red} DELETE  \color {yellow} \space Work \space REST \space API \space in \space postman}$$ 
+
+#### Before
 ![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/17240a62-30d8-4d96-b6dc-35e779829981)
 
 ![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/a7a05a73-6f07-400a-81b0-fd42e816911a)
@@ -51,6 +52,22 @@ http://localhost:9090/RestAPI/soap/employee
 
 
  ![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/6ce33b20-9176-4b1d-aae9-b0ffea7838fa)
+
+ ---
+ ### $${ \color {red} ADD  \color {yellow} \space Department \space REST \space API \space in \space postman}$$
+
+### Before
+
+![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/11a1e826-62e6-4956-b6ca-6a34ba897fe6)
+
+![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/4caf5dcf-0674-40a5-8bca-f17184c4947f)
+
+### After
+
+![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/6e31f88f-b2b7-4505-beaf-1855b411c707)
+
+![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/5a83bb15-e9a0-4f65-9a79-7ccb33b173b9)
+
 
 ***
 
