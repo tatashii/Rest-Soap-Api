@@ -40,7 +40,7 @@ http://localhost:9090/RestAPI/soap/employee
 
 
 > [!NOTE]
-> Some App Images
+> Some **Postman and Database** Images
 
 ### $${ \color {yellow} test \space employee \space REST \space API \space in \space postman}$$ 
 
