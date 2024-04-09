@@ -68,6 +68,37 @@ http://localhost:9090/RestAPI/soap/employee
 
 ![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/5a83bb15-e9a0-4f65-9a79-7ccb33b173b9)
 
+---
+ ### $${ \color {red} ADD  \color {yellow} \space Employee \space REST \space API \space in \space postman}$$
+
+ ### Before
+
+![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/c2fc0d3b-0005-4160-9b96-8720c4dc408d)
+
+![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/e08cf583-3fe7-4e70-9700-0dfa8a8b3a73)
+
+ ### After
+
+ ![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/4c1d7aa4-bd8b-4d18-8378-13167359a85d)
+
+ ![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/7812a5b5-39c4-4c69-868c-00009f98caeb)
+
+---
+
+ ### $${ \color {red} UPDATE  \color {yellow} \space Address \space REST \space API \space in \space postman}$$
+ 
+ ### Before
+
+![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/d744594a-0170-482d-843a-ac222a429e0a)
+
+![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/6777b008-ae24-4c83-8a79-231030ccad2f)
+
+ ### After
+
+ ![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/af555486-beab-49f9-8f61-871dbd3e607b)
+
+ ![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/5bc35c80-6374-467e-ad8e-6facfef96d76)
+
 
 ***
 
