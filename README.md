@@ -28,8 +28,10 @@ http://localhost:9090/RestAPI/webapi/employee
 
 ***
 
-## SOAP API Project Collection
-### Simple SOAP API for HR Managment ☼☺☻♥
+## Soap API Documentation
+SOAP API Project Collection
+
+### Simple Soap API for HR Managment ☼☺☻♥
 
  #### Employee
  
