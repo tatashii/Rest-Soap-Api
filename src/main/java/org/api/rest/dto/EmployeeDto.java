@@ -3,6 +3,7 @@ package org.api.rest.dto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Value;
+import org.api.rest.entity.Role;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -18,7 +19,7 @@ public class EmployeeDto implements Serializable {
     private String userName;
     private String password;
     private String email;
-    private String role;
+    private String roleName;
     private String gender;
     private BigDecimal salary;
     private Date dob;

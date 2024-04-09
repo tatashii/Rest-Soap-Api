@@ -1,6 +1,7 @@
 package org.api.soap.soapApiServices;
 
 import jakarta.jws.WebMethod;
+import jakarta.jws.WebParam;
 import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import org.api.rest.dto.EmployeeDto;
@@ -24,13 +25,38 @@ public class EmployeeSoapAPI {
         return employeeServices.getAllEmployees();
     }
 
-//    @WebMethod(operationName = "getEmployeeById")
-//    @WebResult(name = "Employee")
-//    public EmployeeDto getEmployeeById(@WebParam(name = "id") int id) {
-//        System.out.println("SOAP API: Getting employee by ID: " + id);
-//        return employeeServices.getEmployeeById(id);
-//    }
 
+    @WebMethod
+    public String addEmployee(@WebParam(name = "employee") EmployeeDto employeeDto) {
+        boolean added = employeeServices.addEmployee(employeeDto);
+        if (added) {
+            return "Employee added successfully.";
+        } else {
+            return "Failed to add employee.";
+        }
+    }
+
+    @WebMethod
+    public String updateEmployee(@WebParam(name = "employee") EmployeeDto employeeDto) {
+        boolean updated = employeeServices.updateEmployee(employeeDto);
+        if (updated) {
+            return "Employee updated successfully.";
+        } else {
+            return "Failed to update employee.";
+        }
+    }
+
+    @WebMethod
+    public String deleteEmployee(@WebParam(name = "id") int id) {
+        EmployeeDto employeeDto = new EmployeeDto();
+        employeeDto.setId(id);
+        boolean deleted = employeeServices.deleteEmployee(employeeDto);
+        if (deleted) {
+            return "Employee with ID " + id + " deleted successfully.";
+        } else {
+            return "Employee with ID " + id + " not found.";
+        }
+    }
 
 
 }

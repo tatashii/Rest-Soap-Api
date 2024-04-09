@@ -39,8 +39,12 @@ public class Employee {
     @Column(name = "Email", nullable = false)
     private String email;
 
-    @Column(name = "Role", length = 100)
-    private String role;
+//    @Column(name = "Role", length = 100)
+//    private String role;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "RoleId", nullable = false)
+    private Role role;
 
     @Column(name = "Gender", length = 10)
     private String gender;
@@ -65,5 +69,7 @@ public class Employee {
 
     @OneToMany(mappedBy = "employee")
     private Set<Leavee> leavees = new LinkedHashSet<>();
+
+
 
 }

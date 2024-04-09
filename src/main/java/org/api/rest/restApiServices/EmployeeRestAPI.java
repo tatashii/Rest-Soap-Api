@@ -33,28 +33,29 @@ public class EmployeeRestAPI {
         employeeServices.addEmployee(emplyeeDto);
     }
 
-
-}
-
-/*
-*
-*  @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllEmployees() {
-        System.out.println("I'm here public public Response getAllEmployees() in EmployeeRestAPI Class");
-        List<EmployeeDto> employeeDtos = emp.getAllEmployees();
-
-        for (EmployeeDto emp : employeeDtos){
-            if(emp != null)
-                System.out.println("employee ----->  = "+emp);
-            else
-                System.out.println("emp = null");
-
-            }
-        return Response.ok(employeeDtos).build();
+    @PUT
+    @Consumes({"application/xml", "application/json"})
+    public void updateEmployee(EmployeeDto emplyeeDto) {
+        employeeServices.updateEmployee(emplyeeDto);
     }
 
-* */
+    @DELETE
+    @Path("/{id}")
+    public Response deleteEmployee(@PathParam("id") int id) {
+        EmployeeDto employeeDto = new EmployeeDto();
+        employeeDto.setId(id);
+        boolean deleted = employeeServices.deleteEmployee(employeeDto);
+        if (deleted) {
+            return Response.ok().build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
+
+
+
+
+}
 
 
 

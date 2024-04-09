@@ -28,26 +28,16 @@ public class EmployeeDAO implements EmployeeDAOInt {
         em.remove(employee);
     }
 
-
     //------------------------------------------------------------------------------------------------------
     public List<Employee> getAllEmployees(EntityManager em) {
         return em.createQuery("SELECT e FROM Employee e", Employee.class).getResultList();
     }
     //------------------------------------------------------------------------------------------------------
 
-
     @Override
-    public Employee get(Integer id) {
+    public List<Employee> getAll(EntityManager em) {
         return null;
     }
 
-    @Override
-    public List<Employee> getAll() {
-        return null;
-    }
 
-    @Override
-    public Optional<Employee> get(Integer id, javax.persistence.EntityManager em) {
-        return Optional.empty();
-    }
 }
