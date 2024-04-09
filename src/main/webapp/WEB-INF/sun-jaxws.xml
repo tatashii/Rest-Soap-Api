@@ -7,9 +7,44 @@
     </endpoint>
 
     <endpoint
-            name="CalculatorWebService"
+            name="EmployeeWebService"
             implementation="org.api.soap.soapApiServices.EmployeeSoapAPI"
             url-pattern="/soap/employee">
+
+    </endpoint>
+
+    <endpoint
+            name="DepartmentWebService"
+            implementation="org.api.soap.soapApiServices.DepartmentSoapAPI"
+            url-pattern="/soap/department">
+
+    </endpoint>
+
+    <endpoint
+            name="RoleWebService"
+            implementation="org.api.soap.soapApiServices.RoleSoapAPI"
+            url-pattern="/soap/role">
+
+    </endpoint>
+
+    <endpoint
+            name="AddressWebService"
+            implementation="org.api.soap.soapApiServices.AddressSoapAPI"
+            url-pattern="/soap/address">
+
+    </endpoint>
+
+    <endpoint
+            name="WorkWebService"
+            implementation="org.api.soap.soapApiServices.WorkSoapAPI"
+            url-pattern="/soap/work">
+
+    </endpoint>
+
+    <endpoint
+            name="LeaveeWebService"
+            implementation="org.api.soap.soapApiServices.LeaveeSoapAPI"
+            url-pattern="/soap/leavee">
 
     </endpoint>
 

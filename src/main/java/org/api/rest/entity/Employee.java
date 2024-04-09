@@ -43,7 +43,7 @@ public class Employee {
 //    private String role;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "RoleId", nullable = false)
+    @JoinColumn(name = "RoleId")
     private Role role;
 
     @Column(name = "Gender", length = 10)

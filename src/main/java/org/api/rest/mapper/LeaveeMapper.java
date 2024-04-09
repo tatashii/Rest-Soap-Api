@@ -10,6 +10,7 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
 import java.util.Set;
 
 @Mapper
@@ -21,6 +22,8 @@ public interface LeaveeMapper {
     LeaveeDto toDto(Leavee leavee);
     Set<LeaveeDto> toSetDto (Set<Leavee> leavees);
     Set<Leavee> toSetEntity (Set<LeaveeDto> leaveeDtos);
+
+    List<LeaveeDto> toListDto (List<Leavee> leavees);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     Leavee partialUpdate(LeaveeDto leaveeDto, @MappingTarget Leavee leavee);

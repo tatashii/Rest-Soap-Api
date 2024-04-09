@@ -60,70 +60,74 @@ public class EmployeeServices {
     }
 
     public boolean updateEmployee(EmployeeDto employeeDto) {
+        try {
+            Employee employee = empoyeeMapper.toEntity(employeeDto);
 
-        try{
-        Employee employee = empoyeeMapper.toEntity(employeeDto);
-
-        // Set Department if provided
-        if (employeeDto.getDepartmentId() != null) {
-            Department department = Database.doInTransaction(em -> {
-                return departmentDAO.findById(employeeDto.getDepartmentId(), em);
-            });
-            employee.setDepartment(department);
-        }
-
-        // Set Role if provided
-        if (employeeDto.getRoleName() != null) {
-            Role role = Database.doInTransaction(em -> {
-                return roleDAO.findById(employeeDto.getRoleName(), em);
-            });
-            employee.setRole(role);
-        }
-
-        // Set Addresses if provided
-        if (employeeDto.getAddresses() != null && !employeeDto.getAddresses().isEmpty()) {
-            Set<Address> addresses = new LinkedHashSet<>();
-            for (AddressDto addressDto : employeeDto.getAddresses()) {
-                Address address = Database.doInTransaction(em -> {
-                    return addressDAO.findById(addressDto.getId(), em);
+            // Set Department if provided
+            if (employeeDto.getDepartmentId() != null) {
+                Department department = Database.doInTransaction(em -> {
+                    return departmentDAO.findById(employeeDto.getDepartmentId(), em);
                 });
-                if (address != null) {
-                    addresses.add(address);
-                } else {
-                    throw new IllegalArgumentException("Address with ID " + addressDto.getId() + " not found");
+                employee.setDepartment(department);
+            }
+
+            // Set Role if provided
+            if (employeeDto.getRoleName() != null) {
+                Role role = Database.doInTransaction(em -> {
+                    return roleDAO.findByName(employeeDto.getRoleName(), em);
+                });
+                employee.setRole(role);
+            }
+
+            // Update Addresses if provided
+            if (employeeDto.getAddresses() != null && !employeeDto.getAddresses().isEmpty()) {
+                for (AddressDto addressDto : employeeDto.getAddresses()) {
+                    Address address = Database.doInTransaction(em -> {
+                        return addressDAO.findById(addressDto.getId(), em);
+                    });
+                    if (address != null) {
+                        // Update address properties based on the DTO
+                        address.setHouseNo(addressDto.getHouseNo());
+                        address.setStreet(addressDto.getStreet());
+                        address.setCity(addressDto.getCity());
+                        address.setPincode(addressDto.getPincode());
+                        address.setState(addressDto.getState());
+                    } else {
+                        throw new IllegalArgumentException("Address with ID " + addressDto.getId() + " not found");
+                    }
                 }
             }
-            employee.setAddresses(addresses);
-        }
 
-        // Set Leavees if provided
-        if (employeeDto.getLeavees() != null && !employeeDto.getLeavees().isEmpty()) {
-            Set<Leavee> leavees = new LinkedHashSet<>();
-            for (LeaveeDto leaveeDto : employeeDto.getLeavees()) {
-                Leavee leavee = Database.doInTransaction(em -> {
-                    return leaveeDAO.findById(leaveeDto.getId(), em);
-                });
-                if (leavee != null) {
-                    leavees.add(leavee);
-                } else {
-                    throw new IllegalArgumentException("Leavee with ID " + leaveeDto.getId() + " not found");
+            // Update Leavees if provided
+            if (employeeDto.getLeavees() != null && !employeeDto.getLeavees().isEmpty()) {
+                for (LeaveeDto leaveeDto : employeeDto.getLeavees()) {
+                    Leavee leavee = Database.doInTransaction(em -> {
+                        return leaveeDAO.findById(leaveeDto.getId(), em);
+                    });
+                    if (leavee != null) {
+                        // Update leavee properties based on the DTO
+                        leavee.setReason(leaveeDto.getReason());
+                        leavee.setStatus(leaveeDto.getStatus());
+                        leavee.setLeaveStartDate(leaveeDto.getLeaveStartDate());
+                        leavee.setLeaveEndDate(leaveeDto.getLeaveEndDate());
+                    } else {
+                        throw new IllegalArgumentException("Leavee with ID " + leaveeDto.getId() + " not found");
+                    }
                 }
             }
-            employee.setLeavees(leavees);
+
+            // Now, update the employee entity itself
+            Database.doInTransactionWithoutResult(em -> {
+                employeeDAO.update(employee, em);
+            });
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
-
-        Database.doInTransactionWithoutResult(em -> {
-            employeeDAO.update(employee, em);
-        });
-
-        return true;
-    } catch (Exception e) {
-        e.printStackTrace();
-        return false;
     }
 
-
-    }
 
     public boolean addEmployee(EmployeeDto employeeDto) {
 
@@ -140,7 +144,7 @@ public class EmployeeServices {
         // Set Role if provided
         if (employeeDto.getRoleName() != null) {
             Role role = Database.doInTransaction(em -> {
-                return roleDAO.findById(employeeDto.getRoleName(), em);
+                return roleDAO.findByName(employeeDto.getRoleName(), em);
             });
             employee.setRole(role);
         }
@@ -170,8 +174,7 @@ public class EmployeeServices {
         return false;
     }
 
-
-    }
+  }
 
     public boolean deleteEmployee(EmployeeDto employeeDto) {
 

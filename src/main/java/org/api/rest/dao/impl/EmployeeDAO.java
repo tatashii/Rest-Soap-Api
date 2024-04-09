@@ -2,6 +2,7 @@ package org.api.rest.dao.impl;
 
 import javax.persistence.EntityManager;
 import org.api.rest.dao.interfacee.EmployeeDAOInt;
+import org.api.rest.entity.Address;
 import org.api.rest.entity.Employee;
 
 
@@ -34,10 +35,17 @@ public class EmployeeDAO implements EmployeeDAOInt {
     }
     //------------------------------------------------------------------------------------------------------
 
+    public Employee findById(Integer employeeId, EntityManager em) {
+        return em.find(Employee.class, employeeId);
+    }
+
     @Override
     public List<Employee> getAll(EntityManager em) {
         return null;
     }
+
+
+
 
 
 }

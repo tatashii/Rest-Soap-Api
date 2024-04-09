@@ -1,8 +1,10 @@
 package org.api.rest.mapper;
 
 import org.api.rest.dto.AddressDto;
+import org.api.rest.dto.DepartmentDto;
 import org.api.rest.dto.EmployeeDto;
 import org.api.rest.entity.Address;
+import org.api.rest.entity.Department;
 import org.api.rest.entity.Employee;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
@@ -22,6 +24,8 @@ public interface AddressMapper {
     AddressDto toDto(Address address);
     Set<AddressDto> toSetDto (Set<Address> addresss);
     Set<Address> toSetEntity (Set<AddressDto> AddressDto);
+
+    List<AddressDto> toListDto (List<Address> addresses);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     Address partialUpdate(AddressDto addressDto, @MappingTarget Address address);

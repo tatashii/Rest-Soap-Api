@@ -28,7 +28,11 @@ public class RoleDAO implements RoleDAOInt {
         return em.createQuery("SELECT e FROM Role e", Role.class).getResultList();
     }
 
-    public Role findById(String roleName, EntityManager em) {
+    public Role findByName(String roleName, EntityManager em) {
         return em.find(Role.class, roleName);
+    }
+
+    public Role findById(Integer id, EntityManager em) {
+        return em.find(Role.class, id);
     }
 }
