@@ -11,7 +11,7 @@ public class Database {
     private Database() {
     }
     private static final EntityManagerFactory emf =
-            Persistence.createEntityManagerFactory("rest");
+            Persistence.createEntityManagerFactory("rest2");//**** changed database ****
 
     public static <R> R doInTransaction(
             Function<EntityManager, R> returningTransactionFunction) {

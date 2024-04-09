@@ -1,7 +1,7 @@
 import org.api.rest.dto.EmployeeDto;
 import org.api.rest.entity.*;
 import org.api.rest.entityManager.Database;
-import org.api.rest.entityManager.EntityManagerFactorySingleton;
+//import org.api.rest.entityManager.EntityManagerFactorySingleton;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -40,7 +40,13 @@ public class Main {
             employee.setUserName("john.doe");
             employee.setPassword("password");
             employee.setEmail("john.doe@example.com");
-            employee.setRole("Developer");
+
+
+            Role role = new Role();
+            role.setName(Role.RoleName.DEVELOPER);
+            employee.setRole(role);
+
+
             employee.setGender("Male");
             employee.setSalary(new java.math.BigDecimal(5000));
             employee.setDob(dobValue);

@@ -4,10 +4,13 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
              https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
 
-    <persistence-unit name="rest">
+    <persistence-unit name="rest2">
         <properties>
+
+            <property name="jakarta.persistence.provider" value="org.hibernate.jpa.HibernatePersistenceProvider"/>
+
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-            <property name="jakarta.persistence.jdbc.url"    value="jdbc:mysql://localhost:3306/rest" />
+            <property name="jakarta.persistence.jdbc.url"    value="jdbc:mysql://localhost:3306/rest2" />
             <property name="jakarta.persistence.jdbc.user"   value="root" />
             <property name="jakarta.persistence.jdbc.password" value="0000" />
                                                                         <!--            drop-and-create          -->

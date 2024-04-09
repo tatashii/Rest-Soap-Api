@@ -1,4 +1,4 @@
-//package org.api.rest.mapper;
+package org.api.rest.mapper;
 
 import org.api.rest.dto.AddressDto;
 import org.api.rest.dto.LeaveeDto;
@@ -12,18 +12,18 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.Set;
 
-//@Mapper
-//public interface LeaveeMapper {
-//
-//    LeaveeMapper INSTANCE = Mappers.getMapper(LeaveeMapper.class);
-//    Leavee toEntity(LeaveeDto leaveeDto);
-//
-//    LeaveeDto toDto(Leavee leavee);
-//    Set<LeaveeDto> toSetDto (Set<Leavee> leavees);
-//    Set<Leavee> toSetEntity (Set<LeaveeDto> leaveeDtos);
-//
-//    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-//    Leavee partialUpdate(LeaveeDto leaveeDto, @MappingTarget Leavee leavee);
-//
-//
-//}
+@Mapper
+public interface LeaveeMapper {
+
+    LeaveeMapper INSTANCE = Mappers.getMapper(LeaveeMapper.class);
+    Leavee toEntity(LeaveeDto leaveeDto);
+
+    LeaveeDto toDto(Leavee leavee);
+    Set<LeaveeDto> toSetDto (Set<Leavee> leavees);
+    Set<Leavee> toSetEntity (Set<LeaveeDto> leaveeDtos);
+
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    Leavee partialUpdate(LeaveeDto leaveeDto, @MappingTarget Leavee leavee);
+
+
+}
