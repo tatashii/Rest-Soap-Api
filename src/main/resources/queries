@@ -10,17 +10,17 @@ DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS Role;
 
 CREATE TABLE Department (
-    Id INT PRIMARY KEY,
+    Id INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB;
 
 CREATE TABLE Role (
-    Id INT PRIMARY KEY,
+    Id INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(100) NOT NULL
 ) ENGINE=InnoDB;
 
 CREATE TABLE Work (
-    Id INT PRIMARY KEY,
+    Id INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(255) NOT NULL,
     Description VARCHAR(255),
     StartTime TIMESTAMP,
@@ -30,23 +30,23 @@ CREATE TABLE Work (
 ) ENGINE=InnoDB;
 
 CREATE TABLE Employee (
-    Id INT PRIMARY KEY,
+    Id INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(255) NOT NULL,
     UserName VARCHAR(100) NOT NULL,
     Password VARCHAR(100) NOT NULL,
     Email VARCHAR(255) NOT NULL,
-    RoleId INT,  -- Updated to reference Role table
+    RoleId INT,
     Gender VARCHAR(10),
     Salary DECIMAL(10,2),
     DOB DATE,
     Joining DATE,
     DepartmentId INT,
     FOREIGN KEY (DepartmentId) REFERENCES Department(Id),
-    FOREIGN KEY (RoleId) REFERENCES Role(Id)  -- Foreign key constraint for Role
+    FOREIGN KEY (RoleId) REFERENCES Role(Id)
 ) ENGINE=InnoDB;
 
 CREATE TABLE Address (
-    Id INT PRIMARY KEY,
+    Id INT AUTO_INCREMENT PRIMARY KEY,
     HouseNo VARCHAR(50),
     Street VARCHAR(255) NOT NULL,
     City VARCHAR(100),
@@ -57,7 +57,7 @@ CREATE TABLE Address (
 ) ENGINE=InnoDB;
 
 CREATE TABLE Leavee (
-    Id INT PRIMARY KEY,
+    Id INT AUTO_INCREMENT PRIMARY KEY,
     Reason VARCHAR(255) NOT NULL,
     Status VARCHAR(50) NOT NULL,
     LeaveStartDate TIMESTAMP NOT NULL,
@@ -97,3 +97,20 @@ INSERT INTO Leavee (Id, Reason, Status, LeaveStartDate, LeaveEndDate, EmployeeId
 VALUES (1, 'Vacation', 'Approved', '2024-06-01 00:00:00', '2024-06-10 00:00:00', 1),
        (2, 'Personal reasons', 'Pending', '2024-05-15 00:00:00', '2024-05-20 00:00:00', 2),
        (3, 'Sick leave', 'Approved', '2024-04-20 00:00:00', '2024-04-25 00:00:00', 3);
+
+
+
+delete from work;
+
+
+
+
+
+
+
+
+
+
+
+
+

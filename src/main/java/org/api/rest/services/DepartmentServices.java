@@ -80,16 +80,17 @@ public class DepartmentServices {
 
 
     public boolean addDepartment(DepartmentDto departmentDto) {
-        try {
+//        try {
             Department department = departmentMapper.toEntity(departmentDto);
             Database.doInTransactionWithoutResult(em -> {
                 departmentDAO.save(department, em);
-            });
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+//            });
+//            return true;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return false;
+        });
+        return false;
     }
 
 

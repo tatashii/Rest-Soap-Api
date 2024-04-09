@@ -131,7 +131,7 @@ public class EmployeeServices {
 
     public boolean addEmployee(EmployeeDto employeeDto) {
 
-        try{
+//        try{
         Employee employee = empoyeeMapper.toEntity(employeeDto);
 
         if (employeeDto.getDepartmentId() != null) {
@@ -169,10 +169,10 @@ public class EmployeeServices {
         });
 
         return true;
-    } catch (Exception e) {
-        e.printStackTrace();
-        return false;
-    }
+//    } catch (Exception e) {
+//        e.printStackTrace();
+//        return false;
+//    }
 
   }
 

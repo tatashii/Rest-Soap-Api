@@ -66,17 +66,17 @@ public class DepartmentRestAPI {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addDepartment(DepartmentDto departmentDto) {
-        try {
+//        try {
             boolean success = departmentServicesss.addDepartment(departmentDto);
-            if (success) {
+//            if (success) {
                 return Response.ok().build();
-            } else {
-                return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Failed to add department").build();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal server error").build();
+//            } else {
+//                return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Failed to add department").build();
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal server error").build();
         }
-    }
+
 }
 
