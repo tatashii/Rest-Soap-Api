@@ -1,5 +1,7 @@
 package org.api.rest.dto;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Value;
 
 import java.io.Serializable;
@@ -7,7 +9,9 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 
-@Value
+@Data
+//@Value
+//@NoArgsConstructor
 public class EmployeeDto implements Serializable {
     private Integer id;
     private String name;

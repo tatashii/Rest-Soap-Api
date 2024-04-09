@@ -1,11 +1,12 @@
 package org.api.rest.dto;
 
+import lombok.Data;
 import lombok.Value;
 
 import java.io.Serializable;
 import java.util.Date;
 
-@Value
+@Data
 public class LeaveeDto implements Serializable {
     private Integer id;
     private String reason;

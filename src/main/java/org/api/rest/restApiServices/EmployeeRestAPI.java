@@ -1,9 +1,7 @@
 package org.api.rest.restApiServices;
 
 import jakarta.inject.Inject;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.api.rest.dto.EmployeeDto;
@@ -28,6 +26,13 @@ public class EmployeeRestAPI {
         System.out.println("employee 1 ----------> "+employeeServices.getAllEmployees().get(1));
         return employeeServices.getAllEmployees();
     }
+
+    @POST
+    @Consumes({"application/xml", "application/json"})
+    public void addEmployee(EmployeeDto emplyeeDto) {
+        employeeServices.addEmployee(emplyeeDto);
+    }
+
 
 }
 

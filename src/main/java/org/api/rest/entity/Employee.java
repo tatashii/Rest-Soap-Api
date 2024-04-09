@@ -1,10 +1,15 @@
 package org.api.rest.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.LinkedHashSet;
@@ -30,6 +35,7 @@ public class Employee {
     @Column(name = "Password", nullable = false, length = 100)
     private String password;
 
+    @NotNull
     @Column(name = "Email", nullable = false)
     private String email;
 

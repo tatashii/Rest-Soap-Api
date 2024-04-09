@@ -1,10 +1,9 @@
 package org.api.rest.entityManager;
 
-
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
 import java.util.function.Consumer;
 import java.util.function.Function;
 
