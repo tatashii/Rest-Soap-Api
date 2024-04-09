@@ -38,8 +38,21 @@ SOAP API Project Collection
 GET
 http://localhost:9090/RestAPI/soap/employee
 
-***
+--- 
+### DELETE WORK
+#### before
+![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/17240a62-30d8-4d96-b6dc-35e779829981)
 
+![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/a7a05a73-6f07-400a-81b0-fd42e816911a)
+
+### After
+
+![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/e287cd0d-0349-4c34-907b-197e4994fb9a)
+
+
+ ![image](https://github.com/tatashii/Rest-Soap-Api/assets/62612608/6ce33b20-9176-4b1d-aae9-b0ffea7838fa)
+
+***
 
 > [!NOTE]
 > Some **Postman and Database** Images
